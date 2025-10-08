@@ -1,0 +1,142 @@
+@use "sass:list";
+@use "./variables";
+
+/* ========== Reset & Tokens ========== */
+:root {
+  --color-texto: #2c2c2c;
+  --color-borde: #9ca3af;
+  --color-resalte: #000;
+  --tamano-encabezado: 1.25rem;
+}
+
+* { margin: 0; padding: 0; }
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* ========== tipografia ========== */
+body { color: var(--color-texto); }
+
+/* ========== Links & Focus ========== */
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { @include variables.focus-ring(); }
+
+/* ========== Header ========== */
+.encabezado {
+  @extend %flex-row-wrap;
+  padding: 12px 16px;
+  border-bottom: 3px solid var(--color-borde);
+}
+.encabezado__logo { width: 60px; height: auto; }
+.encabezado__titulo { line-height: 1; font-weight: 800; font-size: var(--tamano-encabezado); }
+
+/* ========== Nav ========== */
+.navegacion {
+  &__lista {
+    display: flex;
+    gap: list.nth(variables.$nav-gaps, 1); /* mobile */
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+  &__enlace { text-decoration: none; }
+}
+
+/* ========== Banner ========== */
+.banner {
+  width: 100%;
+  height: list.nth(variables.$banner-heights, 1); /* mobile */
+  overflow: hidden;
+}
+.banner__imagen {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: 0.5;
+}
+
+/* ========== Footer ========== */
+.pie {
+  @extend %flex-row-wrap;
+  justify-content: space-between;
+  padding: 16px;
+  border-top: 2px solid var(--color-borde);
+}
+.pie__redes { list-style: none; display: flex; gap: 12px; }
+.pie__icono { width: 40px; height: 40px; }
+
+/* ========== Componentes ========== */
+.boton--contorno {
+  color: var(--color-borde);
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+.boton--contorno:hover,
+.boton--contorno:active {
+  color: var(--color-texto);
+  background-color: transparent;
+  border-color: currentColor;
+}
+.menu-desplegable--buscar-curso .dropdown-item:hover,
+.menu-desplegable--buscar-curso .dropdown-item:focus {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--color-texto);
+}
+
+/* ========== Media queries (global) ========== */
+@media (min-width: #{variables.$bp-sm}) {
+  .banner { height: list.nth(variables.$banner-heights, 2); } /* >= sm */
+  .encabezado { gap: 16px; }
+  .navegacion {
+    margin-left: auto;
+    &__lista { gap: list.nth(variables.$nav-gaps, 2); } /* >= sm */
+  }
+  .encabezado__logo { width: 96px; }
+}
+
+/* ========== Demo: Cubo 3D ========== */
+.scene {
+  --cube-size: 120px;
+  width: var(--cube-size); height: var(--cube-size);
+  margin-left: auto; margin-bottom: 6rem;
+  perspective: 800px;
+}
+.cube {
+  width: 100%; height: 100%; position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 5s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transform: rotateX(22deg) rotateY(35deg);
+  }
+}
+.cube__face {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1;
+  font-family: variables.$font-stack;
+
+  background: rgba(0,0,0,.10);
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto);
+  backface-visibility: hidden;
+}
+/* Caras */
+.cube__face--front  { transform: translateZ(calc(var(--cube-size) / 2)); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
+.cube__face--right  { transform: rotateY(90deg)  translateZ(calc(var(--cube-size) / 2)); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+.cube__face--top    { transform: rotateX(90deg)  translateZ(calc(var(--cube-size) / 2)); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
+
+/* Animación */
+@keyframes rotateCube {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to   { transform: rotateX(360deg) rotateY(360deg); }
+}

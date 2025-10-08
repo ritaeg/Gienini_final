@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cursos Rita</title>
+
+  <!-- Bootstrap  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- mi CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header class="encabezado">
+    <!-- logo de cursos Rita -->
+    <div>
+      <a href="../index.html" aria-label="Inicio">
+        <img class="encabezado__logo" src="../assets/logor.jpg" alt="Cursos Rita" />
+      </a>
+    </div>
+
+    <h1 class="encabezado__titulo">Cursos Rita</h1>
+
+    <!-- menú de navegación  -->
+    <nav class="navegacion">
+      <ul class="navegacion__lista">
+        <li><a class="navegacion__enlace" href="../index.html">inicio</a></li>
+        <li><a class="navegacion__enlace" href="./indice.html">índice</a></li>
+        <li><a class="navegacion__enlace" href="./contacto.html">contacto</a></li>
+        <li><a class="navegacion__enlace" href="./nosotros.html">nosotros</a></li>
+      </ul>
+    </nav>
+
+    <!-- Contenedor del dropdown -->
+    <div class="dropdown my-2">
+      <!-- Botón disparador -->
+      <button class="btn btn-outline-secondary dropdown-toggle boton--contorno" type="button" id="desplegableCursos"
+        data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+        Buscar
+      </button>
+      <!-- Menú -->
+      <ul class="dropdown-menu menu-desplegable--buscar-curso" aria-labelledby="desplegableCursos">
+        <li><a class="dropdown-item" href="./curso1.html">Curso 1</a></li>
+        <li><a class="dropdown-item" href="./curso2.html">Curso 2</a></li>
+        <li><a class="dropdown-item" href="./curso3.html">Curso 3</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="pagina-nosotros container px-3">
+    <section>
+      <h2>Nosotros</h2>
+      <p>somos los más mega re mejores</p>
+      <p>sos un capo si nos elegís</p>
+      <p>comprá nuestros cursos</p>
+    </section>
+
+    <section class="demo-3d" aria-label="Demo de cubo 3D">
+      <div class="scene">
+        <div class="cube" aria-hidden="true">
+          <div class="cube__face cube__face--front">FR</div>
+          <div class="cube__face cube__face--back">BK</div>
+          <div class="cube__face cube__face--right">RT</div>
+          <div class="cube__face cube__face--left">LT</div>
+          <div class="cube__face cube__face--top">TP</div>
+          <div class="cube__face cube__face--bottom">BT</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p class="pie__texto">copyright</p>
+    <ul class="pie__redes">
+      <li>
+        <a href="#">
+          <img class="pie__icono" src="../assets/fb.jpg" alt="icono facebook">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img class="pie__icono" src="../assets/inst.jpg" alt="icono instagram">
+        </a>
+      </li>
+    </ul>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

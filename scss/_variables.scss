@@ -1,0 +1,29 @@
+﻿
+$color-texto: var(--color-texto);
+$color-borde: var(--color-borde);
+$color-resalte: var(--color-resalte);
+
+@mixin focus-ring($color: var(--color-resalte)) {
+  outline: 2px solid $color;
+  outline-offset: 2px;
+}
+
+%flex-row-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+$bp-sm: 576px !default;
+$bp-md: 768px !default;
+$bp-lg: 992px !default;
+$bp-xl: 1200px !default;
+
+/* === Listas Sass reutilizables === */
+
+/* Tipografías */
+$font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !default;
+
+$nav-gaps: 8px 12px !default;          // [mobile, >=sm]
+$banner-heights: 93px 18vh !default;    // [mobile, >=sm]
