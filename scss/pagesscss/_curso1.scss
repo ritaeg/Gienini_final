@@ -1,0 +1,24 @@
+@use "../variables";
+
+.curso-media {
+  perspective: 800px;
+  transform-style: preserve-3d;
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    
+    transition: transform 1s ease;
+
+    &:hover {
+      animation: girarY 2s linear infinite;
+    }
+  }
+}
+
+// Animación del giro
+@keyframes girarY {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}

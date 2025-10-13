@@ -1,13 +1,14 @@
 @charset "UTF-8";
-.encabezado, .pie {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* === Listas Sass reutilizables === */
+/* ========== Tokens ========== */
+/* Colores (desde CSS vars) */
 /* Tipografías */
+/* Breakpoints */
+/* Alias de compatibilidad */
+/* Espaciados responsivos (listas) */
+/* [mobile, >=sm] */
+/* [mobile, >=sm] */
+/* Media-query */
+/* Anillo de foco */
 /* ========== Reset & Tokens ========== */
 :root {
   --color-texto: #2c2c2c;
@@ -57,6 +58,10 @@ a:hover {
 
 /* ========== Header ========== */
 .encabezado {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
   padding: 12px 16px;
   border-bottom: 3px solid var(--color-borde);
 }
@@ -90,6 +95,8 @@ a:hover {
   width: 100%;
   height: 93px; /* mobile */
   overflow: hidden;
+  background: #090979;
+  background: linear-gradient(90deg, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
 }
 
 .banner__imagen {
@@ -102,6 +109,10 @@ a:hover {
 
 /* ========== Footer ========== */
 .pie {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 16px;
   border-top: 2px solid var(--color-borde);
@@ -157,119 +168,39 @@ a:hover {
     width: 96px;
   }
 }
-/* ========== Demo: Cubo 3D ========== */
-.scene {
-  --cube-size: 120px;
-  width: var(--cube-size);
-  height: var(--cube-size);
-  margin-left: auto;
-  margin-bottom: 6rem;
-  perspective: 800px;
-}
-
-.cube {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  animation: rotateCube 5s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .cube {
-    animation: none;
-    transform: rotateX(22deg) rotateY(35deg);
-  }
-}
-
-.cube__face {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--color-borde);
-  color: var(--color-texto);
-  backface-visibility: hidden;
-}
-
-/* Caras */
-.cube__face--front {
-  transform: translateZ(calc(var(--cube-size) / 2));
-}
-
-.cube__face--back {
-  transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.cube__face--right {
-  transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.cube__face--left {
-  transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.cube__face--top {
-  transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-.cube__face--bottom {
-  transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2));
-}
-
-/* Animación */
-@keyframes rotateCube {
-  from {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  to {
-    transform: rotateX(360deg) rotateY(360deg);
-  }
-}
 /* ========== Páginas (índice) ========== */
-/* ========== Páginas (contacto) ========== */
 .pagina-contacto {
   max-width: 800px;
   margin: 0 auto;
   padding: 24px 16px 120px;
   min-height: 100vh;
 }
-
 .pagina-contacto h2 {
   text-align: center;
-  margin: 0 0 16px;
+  margin-bottom: 16px;
   font-size: 1.75rem;
 }
-
-.formulario-contacto {
+.pagina-contacto .formulario-contacto {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
 }
-
-.formulario-contacto__campo {
+.pagina-contacto .formulario-contacto__campo {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-
-.formulario-contacto input[type=text],
-.formulario-contacto input[type=tel],
-.formulario-contacto textarea {
+.pagina-contacto .formulario-contacto input[type=text],
+.pagina-contacto .formulario-contacto input[type=tel],
+.pagina-contacto .formulario-contacto textarea {
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid #cfcfcf;
+  border: 1px solid var(--color-borde);
 }
-
-.formulario-contacto textarea {
+.pagina-contacto .formulario-contacto textarea {
   min-height: 120px;
 }
-
-.formulario-contacto__boton {
+.pagina-contacto .formulario-contacto__boton {
   justify-self: stretch;
   margin-top: 8px;
   padding: 8px 14px;
@@ -279,7 +210,32 @@ a:hover {
   border-radius: 6px;
   cursor: pointer;
 }
+.pagina-contacto .formulario-contacto__boton:hover {
+  opacity: 0.9;
+}
 
 /* ========== Páginas (nosotros) ========== */
+.curso-media {
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+.curso-media img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 1s ease;
+}
+.curso-media img:hover {
+  animation: girarY 2s linear infinite;
+}
+
+@keyframes girarY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

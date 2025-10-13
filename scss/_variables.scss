@@ -1,29 +1,56 @@
-﻿
-$color-texto: var(--color-texto);
-$color-borde: var(--color-borde);
-$color-resalte: var(--color-resalte);
+﻿@use "sass:map";
 
-@mixin focus-ring($color: var(--color-resalte)) {
-  outline: 2px solid $color;
+/* ========== Tokens ========== */
+
+/* Colores (desde CSS vars) */
+$colors: (
+  texto: var(--color-texto),
+  borde: var(--color-borde),
+  resalte: var(--color-resalte)
+);
+
+@function color($key) {
+  @return map.get($colors, $key);
+}
+
+/* Tipografías */
+$font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+/* Breakpoints */
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+/* Alias de compatibilidad */
+$bp-sm: map.get($breakpoints, sm);
+$bp-md: map.get($breakpoints, md);
+$bp-lg: map.get($breakpoints, lg);
+$bp-xl: map.get($breakpoints, xl);
+
+/* Espaciados responsivos (listas) */
+$nav-gaps: 8px 12px;        /* [mobile, >=sm] */
+$banner-heights: 93px 18vh; /* [mobile, >=sm] */
+
+
+/* Media-query */
+@mixin mq($from) {
+  @media (min-width: map.get($breakpoints, $from)) {
+    @content;
+  }
+}
+
+/* Anillo de foco */
+@mixin focus-ring($c: color(resalte)) {
+  outline: 2px solid $c;
   outline-offset: 2px;
 }
 
-%flex-row-wrap {
+@mixin flex-row-wrap($gap: 12px) {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: $gap;
   flex-wrap: wrap;
 }
-
-$bp-sm: 576px !default;
-$bp-md: 768px !default;
-$bp-lg: 992px !default;
-$bp-xl: 1200px !default;
-
-/* === Listas Sass reutilizables === */
-
-/* Tipografías */
-$font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !default;
-
-$nav-gaps: 8px 12px !default;          // [mobile, >=sm]
-$banner-heights: 93px 18vh !default;    // [mobile, >=sm]

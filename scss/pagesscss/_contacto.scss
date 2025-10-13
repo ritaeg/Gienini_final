@@ -1,42 +1,53 @@
 @use "../variables";
 
-/* ========== Páginas (contacto) ========== */
 .pagina-contacto {
   max-width: 800px;
   margin: 0 auto;
   padding: 24px 16px 120px;
   min-height: 100vh;
-}
-.pagina-contacto h2 {
-  text-align: center;
-  margin: 0 0 16px;
-  font-size: 1.75rem;
-}
-.formulario-contacto {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-.formulario-contacto__campo {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.formulario-contacto input[type="text"],
-.formulario-contacto input[type="tel"],
-.formulario-contacto textarea {
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #cfcfcf;
-}
-.formulario-contacto textarea { min-height: 120px; }
-.formulario-contacto__boton {
-  justify-self: stretch;
-  margin-top: 8px;
-  padding: 8px 14px;
-  border: 1px solid var(--color-borde);
-  background: var(--color-texto);
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 1.75rem;
+  }
+
+  .formulario-contacto {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    &__campo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--color-borde);
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    &__boton {
+      justify-self: stretch;
+      margin-top: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--color-borde);
+      background: var(--color-texto);
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
 }

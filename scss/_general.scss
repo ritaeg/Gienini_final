@@ -25,7 +25,7 @@ a:hover { text-decoration: underline; }
 
 /* ========== Header ========== */
 .encabezado {
-  @extend %flex-row-wrap;
+  @include variables.flex-row-wrap(12px);
   padding: 12px 16px;
   border-bottom: 3px solid var(--color-borde);
 }
@@ -50,6 +50,8 @@ a:hover { text-decoration: underline; }
   width: 100%;
   height: list.nth(variables.$banner-heights, 1); /* mobile */
   overflow: hidden;
+  background: #090979;
+  background: linear-gradient(90deg, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
 }
 .banner__imagen {
   width: 100%; height: 100%;
@@ -59,7 +61,7 @@ a:hover { text-decoration: underline; }
 
 /* ========== Footer ========== */
 .pie {
-  @extend %flex-row-wrap;
+  @include variables.flex-row-wrap(12px);
   justify-content: space-between;
   padding: 16px;
   border-top: 2px solid var(--color-borde);
@@ -86,7 +88,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* ========== Media queries (global) ========== */
-@media (min-width: #{variables.$bp-sm}) {
+@media (min-width: variables.$bp-sm) {
   .banner { height: list.nth(variables.$banner-heights, 2); } /* >= sm */
   .encabezado { gap: 16px; }
   .navegacion {
@@ -94,49 +96,4 @@ a:hover { text-decoration: underline; }
     &__lista { gap: list.nth(variables.$nav-gaps, 2); } /* >= sm */
   }
   .encabezado__logo { width: 96px; }
-}
-
-/* ========== Demo: Cubo 3D ========== */
-.scene {
-  --cube-size: 120px;
-  width: var(--cube-size); height: var(--cube-size);
-  margin-left: auto; margin-bottom: 6rem;
-  perspective: 800px;
-}
-.cube {
-  width: 100%; height: 100%; position: relative;
-  transform-style: preserve-3d;
-  animation: rotateCube 5s linear infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    transform: rotateX(22deg) rotateY(35deg);
-  }
-}
-.cube__face {
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
-
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1;
-  font-family: variables.$font-stack;
-
-  background: rgba(0,0,0,.10);
-  border: 1px solid var(--color-borde);
-  color: var(--color-texto);
-  backface-visibility: hidden;
-}
-/* Caras */
-.cube__face--front  { transform: translateZ(calc(var(--cube-size) / 2)); }
-.cube__face--back   { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); }
-.cube__face--right  { transform: rotateY(90deg)  translateZ(calc(var(--cube-size) / 2)); }
-.cube__face--left   { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); }
-.cube__face--top    { transform: rotateX(90deg)  translateZ(calc(var(--cube-size) / 2)); }
-.cube__face--bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); }
-
-/* Animación */
-@keyframes rotateCube {
-  from { transform: rotateX(0deg) rotateY(0deg); }
-  to   { transform: rotateX(360deg) rotateY(360deg); }
 }
