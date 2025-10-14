@@ -8,7 +8,8 @@
     display: block;
     width: 100%;
     border-radius: 12px;
-    
+    object-fit: contain;
+    object-position: center;
     transition: transform 1s ease;
 
     &:hover {

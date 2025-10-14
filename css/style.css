@@ -8,7 +8,7 @@
 /* [mobile, >=sm] */
 /* [mobile, >=sm] */
 /* Media-query */
-/* Anillo de foco */
+/* focus ring */
 /* ========== Reset & Tokens ========== */
 :root {
   --color-texto: #2c2c2c;
@@ -223,6 +223,8 @@ a:hover {
   display: block;
   width: 100%;
   border-radius: 12px;
+  object-fit: contain;
+  object-position: center;
   transition: transform 1s ease;
 }
 .curso-media img:hover {

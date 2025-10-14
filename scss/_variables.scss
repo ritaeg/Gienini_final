@@ -42,7 +42,7 @@ $banner-heights: 93px 18vh; /* [mobile, >=sm] */
   }
 }
 
-/* Anillo de foco */
+/* focus ring */
 @mixin focus-ring($c: color(resalte)) {
   outline: 2px solid $c;
   outline-offset: 2px;
