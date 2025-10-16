@@ -210,9 +210,6 @@ a:hover {
   border-radius: 6px;
   cursor: pointer;
 }
-.pagina-contacto .formulario-contacto__boton:hover {
-  opacity: 0.9;
-}
 
 /* ========== Páginas (nosotros) ========== */
 .curso-media {
