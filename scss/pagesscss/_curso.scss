@@ -1,0 +1,81 @@
+@use "../variables";
+
+/* Efecto 3D/rotación para la imagen del curso */
+.curso-media {
+  perspective: 800px;
+  transform-style: preserve-3d;
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 1s ease;
+
+    &:hover {
+      animation: girarY 2s linear infinite;
+    }
+  }
+}
+
+/* Animación del giro */
+@keyframes girarY {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+/* -------------------------------
+   Secciones y tipografía del curso
+   ------------------------------- */
+
+/* H2 de secciones del curso */
+.curso-seccion > h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.25;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Datos del curso (lista de definiciones) */
+.curso-datos {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 12px;
+  margin: 0 0 1rem 0;
+
+  dt {
+    font-weight: 700;
+    margin: 0;
+  }
+  dd {
+    margin: 0;
+  }
+}
+
+/* Programa*/
+.programa__lista {
+  margin: 0;
+  padding-left: 1.25rem;
+
+  > li { margin-bottom: 0.5rem; }
+}
+
+.programa__item-titulo {
+  display: inline-block;
+  font-size: var(--fs-item); 
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.programa__desc {
+  margin: 0.25rem 0 0 0;
+  font-size: var(--fs-desc); 
+  color: #6b7280; 
+}
+
+/* Responsive */
+@media (min-width: variables.$bp-sm) {
+  .curso-datos {
+    gap: 8px 16px;
+  }
+}

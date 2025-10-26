@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Curso 2 - Desarrollo web intermedio - Cursos Rita</title>
-  <meta name="description" content="Profundizá en HTML, CSS y JavaScript con el Curso 2 de Cursos Rita. Prácticas guiadas, proyecto final y soporte docente. Duración 8 semanas.">
+
+  <title>Curso 2 - Diseño Web y Usabilidad | Cursos Rita</title>
+  <meta name="description" content="Diseñá sitios modernos, accesibles y fáciles de usar aplicando principios de diseño visual y UX. Curso 2 de Cursos Rita. Nivel intermedio, duración 8 semanas.">
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <!-- mi CSS -->
+  <!-- Mi CSS -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -22,7 +22,8 @@
       </a>
     </div>
 
-    <h1 class="encabezado__titulo">Cursos Rita - Curso 2</h1>
+    <!-- H1 del curso -->
+    <h1 class="encabezado__titulo">Curso 2 – Diseño Web y Usabilidad</h1>
 
     <nav class="navegacion">
       <ul class="navegacion__lista">
@@ -48,35 +49,58 @@
 
   <main class="container py-4">
     <div class="row g-4">
-      <!-- IZQUIERDA -->
+
+      <!-- IZQUIERDA: imagen + descripción + datos -->
       <div class="col-12 col-lg-6">
         <section>
           <div class="mb-3 mx-auto curso-media">
-            <img src="../assets/libro.jpg" class="rounded object-fit-cover" alt="Imagen del Curso 2">
+            <img src="../assets/libro.jpg" class="rounded object-fit-cover" alt="Curso 2: Diseño Web y Usabilidad - imagen ilustrativa">
           </div>
         </section>
-        <section>
-          <h2 class="h5 mb-2">Programa del curso 2</h2>
-          <p class="mb-3">Descripción breve…</p>
-          <div class="mb-2"><span class="fw-semibold">Duración:</span> 8 semanas</div>
-          <div><span class="fw-semibold">Precio:</span> $99.000 ARS</div>
+
+        <section class="curso-seccion">
+          <h2>Descripción</h2>
+          <p>
+            Diseñá sitios modernos, accesibles y fáciles de usar aplicando principios de diseño visual y UX.
+            Incluye prácticas guiadas y un proyecto final enfocado en usabilidad y accesibilidad.
+          </p>
+        </section>
+
+        <section class="curso-seccion">
+          <h2>Datos del curso</h2>
+          <dl class="curso-datos">
+            <dt>Nivel</dt><dd>Intermedio</dd>
+            <dt>Duración</dt><dd>8 semanas</dd>
+            <dt>Precio</dt><dd>$99.000 ARS</dd>
+          </dl>
         </section>
       </div>
 
-      <!-- DERECHA  -->
+      <!-- DERECHA: programa -->
       <div class="col-12 col-lg-6 d-flex">
         <section class="w-100 h-100 border rounded-4 p-1 d-flex">
           <div class="border rounded-4 p-3 h-100 overflow-auto w-100">
-            <h3 class="h6 mb-2">Programa</h3>
-            <ol class="ps-3">
-              <li>Introducción y setup</li>
+            <h2 class="mb-2">Programa</h2>
+            <ol class="programa__lista ps-3">
               <li>
-                Práctica guiada
-                <p class="mb-0 small text-muted">Lorem ipsum dolor sit amet…</p>
+                <span class="programa__item-titulo">Fundamentos de diseño visual y color</span>
+                <p class="programa__desc mb-0">Contraste, jerarquía visual y teoría del color aplicada.</p>
               </li>
               <li>
-                Proyecto final
-                <p class="mb-0 small text-muted">Asperiores, ad. Dolores accusamus…</p>
+                <span class="programa__item-titulo">Tipografía, grid y componentes</span>
+                <p class="programa__desc mb-0">Escalas tipográficas, sistemas de grillas y patrones UI.</p>
+              </li>
+              <li>
+                <span class="programa__item-titulo">Accesibilidad (WCAG) y usabilidad</span>
+                <p class="programa__desc mb-0">Buenas prácticas, focus, lectura, contrastes y formularios.</p>
+              </li>
+              <li>
+                <span class="programa__item-titulo">Prototipado y pruebas con usuarios</span>
+                <p class="programa__desc mb-0">Wireframes, test rápidos y mejoras iterativas.</p>
+              </li>
+              <li>
+                <span class="programa__item-titulo">Proyecto final</span>
+                <p class="programa__desc mb-0">Diseño y validación de un sitio accesible y usable.</p>
               </li>
             </ol>
           </div>
@@ -85,7 +109,6 @@
 
     </div>
   </main>
-
 
   <footer class="pie">
     <p class="pie__texto">© 2025 Cursos Rita. Todos los derechos reservados.</p>
@@ -100,5 +123,4 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
